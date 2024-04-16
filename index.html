@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warhammer 40k 10th Edition Army Rules & Detachments</title>
+    <title>Warhammer 40k 10th Edition Fan Army Rules & Detachments</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
         }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .faction-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .faction-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .faction-section {
+            flex: 1;
+            margin: 0 15px;
+            text-align: center;
+        }
         .faction-btn {
-            margin: 20px;
-            padding: 15px 30px;
+            margin: 10px;
+            padding: 10px 20px;
             font-size: 18px;
             border: none;
             border-radius: 5px;
@@ -24,17 +42,55 @@
         .faction-btn:hover {
             background-color: #0056b3;
         }
+        .doc-preview {
+            width: 80%;
+            height: 800px;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Warhammer 40k 10th Edition Army Rules & Detachments</h1>
+    <h1>Warhammer 40k 10th Edition Fan Army Rules & Detachments</h1>
+    
+    <div class="faction-list">
+        <section class="faction-section">
+            <div class="faction-header">Imperial</div>
+            <a href="Adepta_Sororitas.html" class="faction-btn">Adepta Sororitas</a>
+            <a href="Adeptus_Custodes.html" class="faction-btn">Adeptus Custodes</a>
+            <a href="Adeptus_Mechanicus.html" class="faction-btn">Adeptus Mechanicus</a>
+            <a href="Astra_Militarum.html" class="faction-btn">Astra Militarum</a>
+            <a href="Grey_Knights.html" class="faction-btn">Grey Knights</a>
+            <a href="Imperial_Knights.html" class="faction-btn">Imperial Knights</a>
+            <a href="Space_Marines.html" class="faction-btn">Space Marines</a>
+            <a href="Black_Templars.html" class="faction-btn">Black Templars</a>
+            <a href="Blood_Angels.html" class="faction-btn">Blood Angels</a>
+            <a href="Dark_Angels.html" class="faction-btn">Dark Angels</a>
+            <a href="Space_Wolves.html" class="faction-btn">Space Wolves</a>
+        </section>
+        
+        <section class="faction-section">
+            <div class="faction-header">Chaos</div>
+            <a href="Chaos_Daemons.html" class="faction-btn">Chaos Daemons</a>
+            <a href="Chaos_Knights.html" class="faction-btn">Chaos Knights</a>
+            <a href="Chaos_Space_Marines.html" class="faction-btn">Chaos Space Marines</a>
+            <a href="Death_Guard.html" class="faction-btn">Death Guard</a>
+            <a href="Emperors_Children.html" class="faction-btn">Emperors Children</a>
+            <a href="Thousand_Sons.html" class="faction-btn">Thousand Sons</a>
+            <a href="World_Eaters.html" class="faction-btn">World Eaters</a>
+        </section>
 
-    <div>
-        <a href="Necrons.html" class="faction-btn">Necrons</a>
-        <a href="chaos.html" class="faction-btn">Chaos</a>
-        <a href="xenos.html" class="faction-btn">Xenos</a>
-        <!-- Add more faction buttons as needed -->
+        <section class="faction-section">
+            <div class="faction-header">Xenos</div>
+            <a href="Aeldari.html" class="faction-btn">Aeldari</a>
+            <a href="Drukhari.html" class="faction-btn">Drukhari</a>
+            <a href="Genestealer_Cults.html" class="faction-btn">Genestealer Cults</a>
+            <a href="Leagues_of_Votann.html" class="faction-btn">Leagues of Votann</a>
+            <a href="Necrons.html" class="faction-btn">Necrons</a>
+            <a href="Orks.html" class="faction-btn">Orks</a>
+            <a href="Tau_Empire.html" class="faction-btn">T’au Empire</a>
+            <a href="Tyranids.html" class="faction-btn">Tyranids</a>
+        </section>
     </div>
 
 </body>
