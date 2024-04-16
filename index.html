@@ -92,6 +92,15 @@
             <a href="Tyranids.html" class="faction-btn">Tyranids</a>
         </section>
     </div>
-
 </body>
+<footer>
+    <div id="version"></div>
+    <script src="version.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const versionDiv = document.getElementById("version");
+            versionDiv.textContent = `Version: ${VERSION}`;
+        });
+    </script>
+</footer>
 </html>
