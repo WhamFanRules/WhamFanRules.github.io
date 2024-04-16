@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Necrons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .faction-btn {
+            margin: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .faction-btn:hover {
+            background-color: #0056b3;
+        }
+        .doc-preview {
+            width: 80%;
+            height: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Necron Army Rules & Detachments</h1>
+
+    <div id="factionButtons">
+        <!-- Faction buttons will be generated here -->
+    </div>
+
+    <iframe src="" name="docPreview" class="doc-preview" frameborder="0"></iframe>
+
+    <script>
+        // Function to generate faction buttons
+        function generateFactionButtons() {
+            const factionButtonsDiv = document.getElementById('factionButtons');
+            const folderPath = '/Necrons/ArmyRules'; // Path to the Necrons folder
+
+            fetch(folderPath)
+                .then(response => response.text())
+                .then(text => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(text, 'text/xml');
+
+                    // Get all .docx file names from the folder
+                    const files = xmlDoc.getElementsByTagName('a');
+                    for (let file of files) {
+                        const fileName = file.getAttribute('href');
+                        if (fileName.endsWith('.txt')) {
+                            const factionName = fileName.replace('.txt', '');
+                            const button = document.createElement('a');
+                            button.href = folderPath + '/' + fileName;
+                            button.target = 'docPreview';
+                            button.className = 'faction-btn';
+                            button.textContent = factionName.charAt(0).toUpperCase() + factionName.slice(1); // Capitalize first letter
+                            factionButtonsDiv.appendChild(button);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching faction files:', error);
+                });
+        }
+
+        // Call the function to generate faction buttons when the page loads
+        generateFactionButtons();
+    </script>
+
+</body>
+</html>
