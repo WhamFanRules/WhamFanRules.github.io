@@ -1,0 +1,29 @@
+name: Update Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: git config --global user.email "action@github.com" && git config --global user.name "GitHub Action"
+
+      - name: Get latest commit hash
+        id: get_commit
+        run: echo "::set-output name=hash::$(git rev-parse HEAD)"
+
+      - name: Generate version file
+        run: echo "const VERSION = '${{ steps.get_commit.outputs.hash }}';" > version.js
+
+      - name: Commit version file
+        run: |
+          git add version.js
+          git commit -m "Update version to ${{ steps.get_commit.outputs.hash }}"
+          git push
