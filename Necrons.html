@@ -45,7 +45,7 @@
         // Function to generate faction buttons
         function generateFactionButtons() {
             const factionButtonsDiv = document.getElementById('factionButtons');
-            const folderPath = '/Necrons/ArmyRules'; // Path to the Necrons folder
+            const folderPath = './Necrons/ArmyRules'; // Path to the Necrons folder
 
             fetch(folderPath)
                 .then(response => response.text())
