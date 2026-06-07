@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.faction-btn {
+    margin: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center-align the items horizontally */
+    display: inline-block;
+}
+
+.faction-btn:hover {
+    background-color: #0056b3;
+}
+
+.faction-section {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center-align the items horizontally */
+}
+
+.faction-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.faction-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.doc-preview {
+    width: 80%;
+    height: 800px;
+    margin: 20px auto;
+}
+
+.rules-section {
+    margin: 20px 0;
+}
+
+.thumbnails {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.thumbnail {
+    flex: 0 0 auto;
+    margin: 0 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
