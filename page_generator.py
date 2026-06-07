@@ -30,26 +30,42 @@ def make_rule_page(faction, category, filename, content):
 
     (output_dir / page_name).write_text(html, encoding="utf-8")
 
-
-def make_faction_index(faction: str):
+def make_faction_index(faction: str, manifest: dict):
     output_dir = PAGES_ROOT / faction
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    cards_html = ""
+
+    for category, files in manifest.items():
+        cards_html += f'<h2>{category}</h2>\n'
+        cards_html += '<div class="category-grid">\n'
+
+        for file in files:
+            name = file.replace(".txt", "")
+            page = f"./{category}/{name}.html"
+
+            cards_html += f"""
+            <a class="card" href="{page}">
+                <div class="card-title">{name}</div>
+                <div class="card-subtitle">{category}</div>
+            </a>
+            """
+
+        cards_html += "</div>\n"
+
     html = f"""<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{faction}</title>
-        <link rel="stylesheet" href="../../Styles/styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{faction}</title>
+    <link rel="stylesheet" href="../../Styles/styles.css">
+</head>
 <body>
 
     <h1>{faction} Army Rules & Detachments</h1>
 
-    <div id="RulesSections"></div>
-
-    <script src="../../Scripts/load_docs.js"></script>
+    {cards_html}
 
 </body>
 </html>
@@ -73,7 +89,7 @@ def main():
             manifest = json.load(f)
 
         # 1. generate faction index page
-        make_faction_index(faction)
+        make_faction_index(faction, manifest)
 
         # 2. generate all rule pages
         for category, files in manifest.items():

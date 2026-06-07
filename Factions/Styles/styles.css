@@ -69,4 +69,36 @@ body {
   cursor: pointer;
 }
 
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card {
+    display: block;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #1b1b1b;
+    color: white;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    background: #2a2a2a;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
 /*# sourceMappingURL=styles.css.map */
